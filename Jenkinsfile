@@ -18,7 +18,7 @@ pipeline {
       steps {
         input 'Do you want to approve the deployment?'
         sh 'scp target/*.jar jenkins@ubuntu1:/opt/pet/'
-        sh 'ssh jenkins@ubuntu1 "nohup java -jar /opt/pet/spring-petclinic-2.1.0.BUILD-SNAPSHOT.jar &"'
+        sh 'ssh jenkins@ubuntu1 "nohup java -jar -Dserver.port=9010 /opt/pet/spring-petclinic-2.1.0.BUILD-SNAPSHOT.jar &"'
       }
     }
   }
